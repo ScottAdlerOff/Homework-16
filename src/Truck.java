@@ -1,6 +1,11 @@
-public class Truck {
+public class Truck extends Bicycle{
     private String modelName;
     private int wheelsCount;
+    public Truck(String modelName, int wheelsCount){
+        super(modelName,wheelsCount);
+        this.modelName = modelName;
+        this.wheelsCount = wheelsCount;
+    }
 
     public void updateTyre() {
         System.out.println("Меняем покрышку");
