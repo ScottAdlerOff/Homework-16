@@ -1,23 +1,28 @@
-public class ServiceStation {
-    public void check(Car car, Bicycle bicycle, Truck truck) {
-        if (car != null) {
-            System.out.println("Обслуживаем " + car.getModelName());
-            for (int i = 0; i < car.getWheelsCount(); i++) {
-                car.updateTyre();
-            }
+public class ServiceStation implements ServiceStationInterface {
+    @Override
+    public void check(Car[] cars) {
+        for (int i = 0; i < cars.length; i++) {
+            Car car = cars[i];
+            car.updateTyre();
             car.checkEngine();
-        } else if (truck != null) {
-            System.out.println("Обслуживаем " + truck.getModelName());
-            for (int i = 0; i < truck.getWheelsCount(); i++) {
-                truck.updateTyre();
-            }
+            System.out.println("Обслуживаем " + car.getModelName());
+        }
+    }
+    @Override
+    public void check(Truck[] trucks) {
+        for (int i = 0; i < trucks.length; i++) {
+            Truck truck = trucks[i];
+            truck.updateTyre();
             truck.checkEngine();
-            truck.checkTrailer();
-        } else if (bicycle != null) {
+            System.out.println("Обслуживаем " + truck.getModelName());
+        }
+    }
+    @Override
+    public void check(Bicycle[] bicycles) {
+        for (int i = 0; i < bicycles.length; i++) {
+            Bicycle bicycle = bicycles[i];
+            bicycle.updateTyre();
             System.out.println("Обслуживаем " + bicycle.getModelName());
-            for (int i = 0; i < bicycle.getWheelsCount(); i++) {
-                bicycle.updateTyre();
-            }
         }
     }
 }
