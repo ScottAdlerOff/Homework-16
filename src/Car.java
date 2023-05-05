@@ -1,10 +1,8 @@
-public class Car extends Bicycle{
+public class Car extends Vehicle{
     private String modelName;
     private int wheelsCount;
     public Car(String modelName, int wheelsCount) {
         super(modelName, wheelsCount);
-        this.modelName = modelName;
-        this.wheelsCount = wheelsCount;
     }
 
     public void updateTyre() {
