@@ -1,6 +1,6 @@
-public class Vehicle {
-    private String modelName;
-    private int wheelsCount;
+public abstract class Vehicle implements ServiceStationInterface{
+    private final String modelName;
+    private final int wheelsCount;
     public Vehicle(String modelName, int wheelsCount){
         this.modelName = modelName;
         this.wheelsCount = wheelsCount;
@@ -13,16 +13,13 @@ public class Vehicle {
     public String getModelName() {
         return modelName;
     }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-    }
-
     public int getWheelsCount() {
         return wheelsCount;
     }
-
-    public void setWheelsCount(int wheelsCount) {
-        this.wheelsCount = wheelsCount;
+    @Override
+    public void service(){
+        for (int i = 0; i < wheelsCount; i++) {
+            updateTyre();
+        }
     }
 }
